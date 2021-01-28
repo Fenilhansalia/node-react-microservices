@@ -1,9 +1,11 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const { randomBytes } = require("crypto");
+const cors = require("cors");
 const app = express();
 
 const commentsByPostId = {};
+app.use(cors());
 app.use(bodyParser.json());
 
 app.get("/posts/:id/comments", (req, res) => {
@@ -22,5 +24,5 @@ app.post("/posts/:id/comments", (req, res) => {
 });
 
 app.listen(4001, () => {
-  console.log("Server is running on 4000");
+  console.log("Server is running on 4001");
 });
