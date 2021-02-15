@@ -22,7 +22,7 @@ app.post("/posts", async (req, res) => {
     title,
   };
 
-  await axios.post("http://localhost:4005/events", {
+  await axios.post("http://event-bus-srv:4005/events", {
     type: "PostCreated",
     data: {
       id,
@@ -40,5 +40,5 @@ app.post("/events", (req, res) => {
 });
 
 app.listen(4000, () => {
-  console.log("Post Server is running on 4000");
+  console.log("Post v2.0 Server is running on 4000");
 });
